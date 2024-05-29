@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WrapperGenerator", "WrapperGenerator\WrapperGenerator.csproj", "{8165A665-B7DA-4BE5-A05A-F74C16D58C22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CE522BCC-F903-42C5-BAB0-15276A8F4F59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8165A665-B7DA-4BE5-A05A-F74C16D58C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8165A665-B7DA-4BE5-A05A-F74C16D58C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8165A665-B7DA-4BE5-A05A-F74C16D58C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE522BCC-F903-42C5-BAB0-15276A8F4F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE522BCC-F903-42C5-BAB0-15276A8F4F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE522BCC-F903-42C5-BAB0-15276A8F4F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE522BCC-F903-42C5-BAB0-15276A8F4F59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
