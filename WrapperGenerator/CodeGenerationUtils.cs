@@ -7,6 +7,12 @@ namespace WrapperGenerator
 {
     public static class CodeGenerationUtils
     {
+        private static readonly Dictionary<Type, string> TypeMappings = new Dictionary<Type, string>
+        {
+            { typeof(void), "void" },
+            // Add more type mappings as needed
+        };
+        
         public static string GetBaseTypeName(Type type)
         {
             string baseName = type.Name;
@@ -20,6 +26,11 @@ namespace WrapperGenerator
 
         public static string GetFriendlyName(Type type)
         {
+            if (TypeMappings.TryGetValue(type, out var friendlyName))
+            {
+                return friendlyName;
+            }
+
             if (type.IsGenericType)
             {
                 string genericType = type.GetGenericTypeDefinition().Name;

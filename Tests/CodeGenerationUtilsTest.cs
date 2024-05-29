@@ -17,6 +17,11 @@ namespace Tests
             {
                 return string.Empty;
             }
+            
+            public void ExampleVoidMethod(string arg1, ref double arg2)
+            {
+            }
+
         }
 
         [Test]
@@ -79,9 +84,12 @@ namespace Tests
         }
 
         [Test]
-        public void METHOD()
+        public void TestGenerateMethodSignatureForVoidMethod()
         {
-            
+            MethodInfo mi = typeof(DummyClass).GetMethod("ExampleVoidMethod");
+            string signature = CodeGenerationUtils.GenerateMethodSignature(mi);
+
+            Assert.AreEqual("void ExampleVoidMethod(String arg1, ref Double arg2);", signature);
         }
     }
 }
