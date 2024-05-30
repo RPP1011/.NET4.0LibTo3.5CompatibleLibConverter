@@ -7,3 +7,5 @@ How it works
 
 Issues:
 - Currently, there are empty interfaces and types are being imported incorrectly (i.e Void instead of void) or the concrete class is referenced instead of the interface. 
+
+I am going to refactor this entire thing
