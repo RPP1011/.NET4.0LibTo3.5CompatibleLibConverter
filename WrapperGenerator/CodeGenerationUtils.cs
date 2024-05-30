@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using WrapperGenerator.Types;
+using MethodInfo = WrapperGenerator.Types.MethodInfo;
+using ParameterInfo = WrapperGenerator.Types.ParameterInfo;
 
 namespace WrapperGenerator
 {
@@ -64,35 +68,51 @@ namespace WrapperGenerator
 
         public static IEnumerable<string> GetMethodNamespaces(Type type)
         {
-            foreach (MethodInfo method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance |
-                                                          BindingFlags.DeclaredOnly))
+            foreach (System.Reflection.MethodInfo method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance |
+                                                                            BindingFlags.DeclaredOnly))
             {
                 yield return method.ReturnType.Namespace;
-                foreach (ParameterInfo parameter in method.GetParameters())
+                foreach (System.Reflection.ParameterInfo parameter in method.GetParameters())
                 {
                     yield return parameter.ParameterType.Namespace;
                 }
             }
         }
-
-        public static string GenerateMethodSignature(MethodInfo method)
+        
+        public static MethodInfo GenerateMethodSignature(System.Reflection.MethodInfo method)
         {
-            string returnType = GetFriendlyName(method.ReturnType);
-            string parameters = string.Join(", ",
-                method.GetParameters().Select(p =>
-                    $"{(p.ParameterType.IsByRef ? "ref " : "")}{GetFriendlyName(p.ParameterType)} {p.Name}"));
-
-            if (returnType.StartsWith("Task")) // Handle Task-based methods
+            var methodInfo = new MethodInfo
             {
-                returnType = "void";
-                parameters = string.IsNullOrWhiteSpace(parameters)
-                    ? "AsyncCallback<" + GetGenericType(method.ReturnType) + "> callback"
-                    : parameters + ", AsyncCallback<" + GetGenericType(method.ReturnType) + "> callback";
+                Name = method.Name,
+                ReturnType = GetFriendlyName(method.ReturnType)
+            };
+
+            foreach (var param in method.GetParameters())
+            {
+                methodInfo.Parameters.Add(new ParameterInfo
+                {
+                    Name = param.Name,
+                    Type = GetFriendlyName(param.ParameterType),
+                    IsByRef = param.ParameterType.IsByRef
+                });
             }
 
-            return $"{returnType} {method.Name}({parameters});";
+            if (method.ReturnType.IsGenericType && method.ReturnType.GetGenericTypeDefinition() == typeof(Task<>))
+            {
+                methodInfo.ReturnType = "void";
+                var callbackType = GetGenericType(method.ReturnType);
+                methodInfo.Parameters.Add(new ParameterInfo
+                {
+                    Name = "callback",
+                    Type = $"AsyncCallback<{callbackType}>",
+                    IsByRef = false
+                });
+            }
+
+            return methodInfo;
         }
 
+        
         public static string GenerateWrapperMethodImplementation(MethodInfo method, string instanceName)
         {
             string returnType = GetFriendlyName(method.ReturnType);

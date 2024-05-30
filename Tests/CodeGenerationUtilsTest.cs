@@ -77,10 +77,7 @@ namespace Tests
             MethodInfo mi = typeof(DummyClass).GetMethod("ExampleMethod");
             string implementation = CodeGenerationUtils.GenerateWrapperMethodImplementation(mi, "dummyInstance");
 
-            Assert.AreEqual(@"public String ExampleMethod(String arg1, ref Double arg2)
-        {
-            return dummyInstance.ExampleMethod(arg1, arg2);
-        }", implementation);
+            Assert.AreEqual(@"public String ExampleMethod(String arg1, ref Double arg2){return dummyInstance.ExampleMethod(arg1, arg2);}", implementation);
         }
 
         [Test]
