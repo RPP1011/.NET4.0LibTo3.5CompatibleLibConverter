@@ -4,7 +4,7 @@ using WrapperGenerator.IR;
 
 namespace WrapperGenerator.Reader
 {
-    public class MethodIntepreter
+    public class MethodInterpreter
     {
         public static IRMethod InterpretMethod(MethodInfo methodInfo)
         {

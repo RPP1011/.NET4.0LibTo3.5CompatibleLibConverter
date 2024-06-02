@@ -13,7 +13,7 @@ namespace WrapperGenerator.Reader
             return new IRClass()
             {
                 GenericTypes = new List<Type>(type.GetGenericArguments()),
-                Methods = type.DeclaredMethods.Where(info => info.IsPublic).Select(MethodIntepreter.InterpretMethod).ToList(),
+                Methods = type.DeclaredMethods.Where(info => info.IsPublic).Select(MethodInterpreter.InterpretMethod).ToList(),
                 Name = type.Name,
                 Namespace = "Wrapper" + type.Namespace
             };

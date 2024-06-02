@@ -45,6 +45,8 @@
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Reader\AssemblyInterpreterTest.cs" />
+        <Compile Include="Reader\MethodInterpreterTest.cs" />
+        <Compile Include="TestAssembly\MethodTestClass.cs" />
         <Compile Include="TestAssembly\TestClass.cs" />
     </ItemGroup>
     <ItemGroup>
