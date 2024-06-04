@@ -11,5 +11,15 @@ namespace Tests.TestAssembly
         private TestClass privateReference;
         
         public Task<TestClass> testClassTask;
+        
+        public void PublicMethod()
+        {
+            // Method logic here
+        }
+
+        private void PrivateMethod()
+        {
+            
+        }
     }
 }
