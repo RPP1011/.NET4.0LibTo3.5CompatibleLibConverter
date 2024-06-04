@@ -42,6 +42,7 @@
     <ItemGroup>
         <Compile Include="IR\IRAssembly.cs" />
         <Compile Include="IR\IRClass.cs" />
+        <Compile Include="IR\IRField.cs" />
         <Compile Include="IR\IRMethod.cs" />
         <Compile Include="IR\IRParameter.cs" />
         <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />

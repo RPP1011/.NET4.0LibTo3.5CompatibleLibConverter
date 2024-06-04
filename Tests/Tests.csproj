@@ -47,8 +47,11 @@
         <Compile Include="Reader\AssemblyInterpreterTest.cs" />
         <Compile Include="Reader\ClassInterpreterTest.cs" />
         <Compile Include="Reader\MethodInterpreterTest.cs" />
+        <Compile Include="TestAssembly\CyclicDependencyA.cs" />
+        <Compile Include="TestAssembly\CyclicDependencyB.cs" />
         <Compile Include="TestAssembly\MethodTestClass.cs" />
         <Compile Include="TestAssembly\TestClass.cs" />
+        <Compile Include="TestAssembly\TestStruct.cs" />
         <Compile Include="Util\TestUtils.cs" />
     </ItemGroup>
     <ItemGroup>
