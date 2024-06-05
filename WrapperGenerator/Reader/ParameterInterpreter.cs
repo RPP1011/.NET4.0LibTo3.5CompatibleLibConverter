@@ -5,13 +5,14 @@ namespace WrapperGenerator.Reader
 {
     public class ParameterInterpreter
     {
-        public static IRParameter InterpretParameter(ParameterInfo parameterInfo)
+        public static IRParameter InterpretParameter(IRTypeGraph typeGraph, ParameterInfo parameterInfo)
         {
+            
             return new IRParameter()
             {
                 IsByRef = parameterInfo.ParameterType.IsByRef,
                 Name = parameterInfo.Name,
-                Type = parameterInfo.ParameterType
+                Type = typeGraph.GetIrType(parameterInfo.ParameterType)
             };
         }
     }

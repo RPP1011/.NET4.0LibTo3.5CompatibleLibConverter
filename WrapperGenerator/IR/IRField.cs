@@ -5,7 +5,7 @@ namespace WrapperGenerator.IR
 {
     public class IRField
     {
-        public Type Type { get; set; }
+        public IRType Type { get; set; }
         public string Name { get; set; }
         public FieldAttributes FieldAttributes { get; set; }
     }
