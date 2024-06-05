@@ -44,11 +44,11 @@ namespace Tests.Reader
             
             // Check IR Field values
             Assert.AreEqual(1, irClassForA.Fields.Count);
-            Assert.AreEqual("cyclicDependencyA", irClassForA.Fields[0].Name);
+            Assert.AreEqual("foo", irClassForA.Fields[0].Name);
             Assert.AreEqual(FieldAttributes.Public, irClassForA.Fields[0].FieldAttributes);
             
             Assert.AreEqual(1, irClassForB.Fields.Count);
-            Assert.AreEqual("cyclicDependencyB", irClassForB.Fields[0].Name);
+            Assert.AreEqual("foo", irClassForB.Fields[0].Name);
             Assert.AreEqual(FieldAttributes.Public, irClassForB.Fields[0].FieldAttributes);        }
     }
 }

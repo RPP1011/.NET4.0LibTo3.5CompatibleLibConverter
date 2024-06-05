@@ -14,6 +14,7 @@ namespace WrapperGenerator.Reader
             {
                 GenericTypes = new List<Type>(type.GetGenericArguments()),
                 Methods = type.DeclaredMethods.Where(info => info.IsPublic).Select(MethodInterpreter.InterpretMethod).ToList(),
+                Fields = type.DeclaredFields.Where(info => info.IsPublic).Select(FieldInterpreter.InterpretField).ToList(),
                 Name = type.Name,
                 Namespace = "Wrapper" + type.Namespace
             };
