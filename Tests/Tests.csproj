@@ -44,21 +44,22 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="Reader\AssemblyInterpreterTest.cs" />
-        <Compile Include="Reader\ClassInterpreterTest.cs" />
-        <Compile Include="Reader\MethodInterpreterTest.cs" />
-        <Compile Include="TestAssembly\CyclicDependencyA.cs" />
-        <Compile Include="TestAssembly\CyclicDependencyB.cs" />
-        <Compile Include="TestAssembly\MethodTestClass.cs" />
-        <Compile Include="TestAssembly\TestClass.cs" />
-        <Compile Include="TestAssembly\TestStruct.cs" />
-        <Compile Include="Util\TestUtils.cs" />
+        <Compile Include="Reader\AssemblyInterpreterTest.cs"/>
+        <Compile Include="Reader\ClassInterpreterTest.cs"/>
+        <Compile Include="Reader\IRTypeGraphTest.cs"/>
+        <Compile Include="Reader\MethodInterpreterTest.cs"/>
+        <Compile Include="TestAssembly\CyclicDependencyA.cs"/>
+        <Compile Include="TestAssembly\CyclicDependencyB.cs"/>
+        <Compile Include="TestAssembly\MethodTestClass.cs"/>
+        <Compile Include="TestAssembly\TestClass.cs"/>
+        <Compile Include="TestAssembly\TestStruct.cs"/>
+        <Compile Include="Util\TestUtils.cs"/>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\WrapperGenerator\WrapperGenerator.csproj">
-        <Project>{8165a665-b7da-4be5-a05a-f74c16d58c22}</Project>
-        <Name>WrapperGenerator</Name>
-      </ProjectReference>
+        <ProjectReference Include="..\WrapperGenerator\WrapperGenerator.csproj">
+            <Project>{8165a665-b7da-4be5-a05a-f74c16d58c22}</Project>
+            <Name>WrapperGenerator</Name>
+        </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

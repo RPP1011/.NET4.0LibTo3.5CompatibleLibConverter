@@ -39,7 +39,7 @@ namespace Tests.TestAssembly
         public string MethodWithParametersAndReturnType(int param1, string param2)
         {
             // Method logic here
-            return param2 + param1.ToString();
+            return param2 + param1;
         }
 
         // Method with generic parameters
@@ -52,7 +52,7 @@ namespace Tests.TestAssembly
         public T MethodWithGenericReturnType<T>()
         {
             // Method logic here
-            return default(T);
+            return default;
         }
 
         // Method with generic parameters and return type
@@ -66,7 +66,7 @@ namespace Tests.TestAssembly
         public TResult MethodWithGenericParametersAndReturnTypeAndParameters<T1, T2, TResult>(T1 param1, T2 param2)
         {
             // Method logic here
-            return default(TResult);
+            return default;
         }
 
         // Method with Task return type

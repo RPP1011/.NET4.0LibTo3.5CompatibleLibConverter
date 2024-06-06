@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-
-namespace WrapperGenerator.IR
+﻿namespace WrapperGenerator.IR
 {
     public class IRParameter
     {

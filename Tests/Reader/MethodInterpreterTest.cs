@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Tests.TestAssembly;
@@ -10,8 +9,8 @@ namespace Tests.Reader
     [TestFixture]
     [TestOf(typeof(MethodInterpreter))]
     public class MethodInterpreterTest
-    {   
-         [Test]
+    {
+        [Test]
         public void InterpretMethod_PublicMethod()
         {
             var methodInfo = typeof(MethodTestClass).GetMethod("PublicMethod");
@@ -25,7 +24,8 @@ namespace Tests.Reader
         [Test]
         public void InterpretMethod_PrivateMethod()
         {
-            var methodInfo = typeof(MethodTestClass).GetMethod("PrivateMethod", BindingFlags.NonPublic | BindingFlags.Instance);
+            var methodInfo =
+                typeof(MethodTestClass).GetMethod("PrivateMethod", BindingFlags.NonPublic | BindingFlags.Instance);
             var irMethod = MethodInterpreter.InterpretMethod(methodInfo);
 
             Assert.AreEqual("PrivateMethod", irMethod.Name);

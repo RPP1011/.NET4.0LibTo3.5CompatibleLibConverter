@@ -6,7 +6,6 @@ namespace WrapperGenerator
     {
         public static void Main(string[] args)
         {
-            
             Console.WriteLine("Wrapper generation completed.");
         }
     }

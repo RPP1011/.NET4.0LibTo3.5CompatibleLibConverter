@@ -7,8 +7,7 @@ namespace WrapperGenerator.Reader
     {
         public static IRParameter InterpretParameter(IRTypeGraph typeGraph, ParameterInfo parameterInfo)
         {
-            
-            return new IRParameter()
+            return new IRParameter
             {
                 IsByRef = parameterInfo.ParameterType.IsByRef,
                 Name = parameterInfo.Name,

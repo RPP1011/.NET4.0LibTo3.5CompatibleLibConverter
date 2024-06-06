@@ -1,9 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
 using System.Reflection;
-using System.Reflection.Emit;
 using NUnit.Framework;
 using Tests.Util;
 using WrapperGenerator.Reader;
@@ -14,13 +10,13 @@ namespace Tests.Reader
     [TestOf(typeof(AssemblyInterpreter))]
     public class AssemblyInterpreterTest
     {
-        private AssemblyInterpreter _assemblyInterpreter;
-
         [SetUp]
         public void Setup()
         {
             _assemblyInterpreter = new AssemblyInterpreter();
         }
+
+        private AssemblyInterpreter _assemblyInterpreter;
 
         [Test]
         public void
@@ -38,8 +34,9 @@ namespace Tests.Reader
         }
 
         [Test]
-        public void GenerateIntermediateRepresentation_ShouldReturnIRAssemblyWithNoClasses_WhenAssemblyDefinedTypesAreNotPublic()
-        { 
+        public void
+            GenerateIntermediateRepresentation_ShouldReturnIRAssemblyWithNoClasses_WhenAssemblyDefinedTypesAreNotPublic()
+        {
             var assembly = TestUtils.GenerateTestAssembly();
             var output = AssemblyInterpreter.GenerateIntermediateRepresentation(assembly);
             Assert.AreEqual(1, output.Classes.Count);
@@ -52,10 +49,8 @@ namespace Tests.Reader
             Assembly assembly = null;
 
             // Act & Assert
-            Assert.Throws<System.NullReferenceException>(() =>
+            Assert.Throws<NullReferenceException>(() =>
                 AssemblyInterpreter.GenerateIntermediateRepresentation(assembly));
         }
-
-        
     }
 }

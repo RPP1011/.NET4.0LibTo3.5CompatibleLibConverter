@@ -7,7 +7,7 @@ namespace WrapperGenerator.Reader
     {
         public static IRField InterpretField(IRTypeGraph typeGraph, FieldInfo fieldInfo)
         {
-            return new IRField()
+            return new IRField
             {
                 Name = fieldInfo.Name,
                 Type = typeGraph.GetIrType(fieldInfo.GetType()),
