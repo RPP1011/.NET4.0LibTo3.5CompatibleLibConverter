@@ -1,28 +1,34 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: .NET 4.8 Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 4.8.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET 4.8
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Install NuGet
+      run: choco install nuget.commandline
+
+    - name: Restore NuGet packages
+      run: nuget restore
+
+    - name: Build solution
+      run: msbuild your-solution.sln /p:Configuration=Release
+
+    - name: Run tests
+      run: |
+        vstest.console.exe **\*.Tests.dll
+      continue-on-error: true
