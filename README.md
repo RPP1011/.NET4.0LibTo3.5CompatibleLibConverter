@@ -7,6 +7,4 @@ How it works
 - The wrapper library will be generated in a new project and will use interop libraries to call the .NET 4.0 library.
 
 Issues:
-- Currently, there are empty interfaces and types are being imported incorrectly (i.e Void instead of void) or the concrete class is referenced instead of the interface. 
-
-I am going to refactor this entire thing
+- Test cases are failing. Need to fix them.
