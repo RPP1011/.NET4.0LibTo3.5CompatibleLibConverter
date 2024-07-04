@@ -8,3 +8,5 @@ How it works
 
 Issues:
 - Test cases are failing. Need to fix them.
+
+- Dead project
